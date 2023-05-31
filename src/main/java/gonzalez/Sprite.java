@@ -102,5 +102,9 @@ public class Sprite extends Group {
     public Rectangle2D getBoundary() {
         return new Rectangle2D(positionX, positionY, width, height);
     }
+
+    public boolean intersects(Sprite s) {
+        return s.getBoundary().intersects(this.getBoundary());
+    }
     
 }
