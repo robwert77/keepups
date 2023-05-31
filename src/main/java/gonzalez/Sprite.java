@@ -14,15 +14,34 @@ public class Sprite extends Group {
     private double height = 0;
     private double velocityX = 0;
     private double velocityY = 0;
+    private String name;
+    private int score;
+    private int lives;
 
-    public Sprite(Image i) {
+    public Sprite(Image i, String name) {
         image = i;
         width = image.getWidth();
         height = image.getHeight();
 
         imageView.setImage(image);
 
+        this.name = name;
+        this.score = 0;
+        this.lives = 3;
+
         this.getChildren().add(imageView);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public int getLives() {
+        return lives;
     }
 
     public void setImage(Image i) {
@@ -73,12 +92,15 @@ public class Sprite extends Group {
         velocityX = x;
         velocityY = y;
     }
+
     public void setVelocityX(double x) {
         velocityX = x;
     }
+
     public void setVelocityY(double y) {
         velocityY = y;
     }
+
     public void addVelocity(double x, double y) {
         velocityX += x;
         velocityY += y;
@@ -106,5 +128,9 @@ public class Sprite extends Group {
     public boolean intersects(Sprite s) {
         return s.getBoundary().intersects(this.getBoundary());
     }
-    
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
 }
